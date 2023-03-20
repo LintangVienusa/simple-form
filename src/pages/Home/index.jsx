@@ -3,24 +3,41 @@ import { Link } from 'react-router-dom';
 import './index.scss';
 
 const Home = () => {
-    const [dataTables, setdataTables] = useState([])
-    
-    useEffect (() => {
+
+    const [getProducts, setProducts] = useState([]);
+
+    useEffect ( () => {
         var url = 'http://localhost:3000/api/v3/catalogs';
-        var req = new Request(url);
-        fetch(req)
+        // var req = new Request(url);
+        fetch(url, {
+            mode:'cors'
+        })
         .then(response => response.json())
         .then(data => {
-            // const datas = data;
-            // setdataTables(datas)
-            console.log(data);
+            // setProducts(data)
+            // console.log(getProducts)
         });
-    })
+    }, [getProducts])
+
+    // console.log(getProducts)
+
+    // const makeAPICall = async () => {
+    //     try {
+    //         const response = await fetch(' http://localhost:3000/api/v3/catalogs', {mode:'cors'});
+    //         let data = await response.json();
+    //         // setProducts(data)
+    //         // console.log(setProducts)
+    //     }
+    //     catch (e) {
+    //         console.log(e)
+    //     }
+    // }
+    // useEffect(() => {
+    //     makeAPICall();
+    // }, [getProducts])
     
+    // console.log(getProducts)
     
-
-
-
     return(
         <div className="main">
             <Link to="/tambah" className="btn btn-primary">Tambah Produk</Link>
@@ -37,7 +54,9 @@ const Home = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    {
+                        // console.log(getProducts.map())
+                    }
                 </tbody>
             </table>
         </div>
