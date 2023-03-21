@@ -14,12 +14,12 @@ const Home = () => {
         })
         .then(response => response.json())
         .then(data => {
-            // setProducts(data)
+            setProducts(data)
             // console.log(getProducts)
         });
-    }, [getProducts])
+    }, [])
 
-    // console.log(getProducts)
+    console.log(getProducts)
 
     // const makeAPICall = async () => {
     //     try {
@@ -47,15 +47,24 @@ const Home = () => {
             <table className="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th className="text-right">Price</th>
+                        <th className="text-center">ID</th>
+                        <th className="text-center">Name</th>
+                        <th className="text-center">Price</th>
                         <th className="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        // console.log(getProducts.map())
+                        getProducts.map(e => {
+                            return(
+                                <tr key={e._id}>
+                                    <td> {e._id} </td>
+                                    <td> {e.productName || e.name} </td>
+                                    <td> {e.price} </td>
+                                    {/* <td> {e._id} </td> */}
+                                </tr>
+                            )
+                        }) 
                     }
                 </tbody>
             </table>
