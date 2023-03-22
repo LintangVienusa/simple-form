@@ -31,7 +31,7 @@ const Home = () => {
                 <thead>
                     <tr>
                         <th className="text-center">Name</th>
-                        <th className="text-center">Price</th>
+                        <th className="text-center">Price (IDR)</th>
                         <th className="text-center">Action</th>
                     </tr>
                 </thead>
@@ -43,9 +43,10 @@ const Home = () => {
                                 <tr key={e._id}>
                                     <td> {e.productName || e.name} </td>
                                     <td> {e.price} </td>
-                                    <td> 
+                                    <td style={{"textAlign": "center"}}> 
                                         <Link to={`/detail/${e._id}`} className="btn btn-sm btn-info">Detail</Link>
-                                        <Link to={`/edit/${e._id}`} className="btn btn-sm btn-warning">Edit</Link>
+                                        <Link to={`/edit`} className="btn btn-sm btn-warning">Edit</Link>
+                                        <Link to="#" className="btn btn-sm btn-danger">Delete</Link>
                                     </td>
                                 </tr>
                             )
