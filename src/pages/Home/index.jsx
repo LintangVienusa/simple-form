@@ -20,23 +20,6 @@ const Home = () => {
     }, [])
 
     console.log(getProducts)
-
-    // const makeAPICall = async () => {
-    //     try {
-    //         const response = await fetch(' http://localhost:3000/api/v3/catalogs', {mode:'cors'});
-    //         let data = await response.json();
-    //         // setProducts(data)
-    //         // console.log(setProducts)
-    //     }
-    //     catch (e) {
-    //         console.log(e)
-    //     }
-    // }
-    // useEffect(() => {
-    //     makeAPICall();
-    // }, [getProducts])
-    
-    // console.log(getProducts)
     
     return(
         <div className="main">
@@ -47,7 +30,6 @@ const Home = () => {
             <table className="table">
                 <thead>
                     <tr>
-                        <th className="text-center">ID</th>
                         <th className="text-center">Name</th>
                         <th className="text-center">Price</th>
                         <th className="text-center">Action</th>
@@ -56,14 +38,18 @@ const Home = () => {
                 <tbody>
                     {
                         getProducts.map(e => {
+                            
                             return(
                                 <tr key={e._id}>
-                                    <td> {e._id} </td>
                                     <td> {e.productName || e.name} </td>
                                     <td> {e.price} </td>
-                                    {/* <td> {e._id} </td> */}
+                                    <td> 
+                                        <Link to={`/detail/${e._id}`} className="btn btn-sm btn-info">Detail</Link>
+                                        <Link to={`/edit/${e._id}`} className="btn btn-sm btn-warning">Edit</Link>
+                                    </td>
                                 </tr>
                             )
+                            
                         }) 
                     }
                 </tbody>

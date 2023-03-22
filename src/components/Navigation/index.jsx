@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import './index.scss';
 
 const Navigation = () => {
@@ -6,14 +6,6 @@ const Navigation = () => {
         <div>
             <div className="navbar">
                 <h4 className="navbar-brand">React x Express</h4>
-                <ul className="link-wrapper">
-                    <li className="link">
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                    <li className="link">
-                        <NavLink to="/tambah">Tambah</NavLink>
-                    </li>
-                </ul>
             </div>
         </div>
     )
